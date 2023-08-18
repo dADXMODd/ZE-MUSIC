@@ -40,7 +40,7 @@ async def close_(_, CallbackQuery):
     if CallbackQuery.from_user.id != int(user_id):
         try:
             return await CallbackQuery.answer(
-                "⌔︙ اعرف حدودك حبيبي لو اعلمك بيها.", show_alert=True
+                "⌔︙ ⎊ ɪᴛ'ʟʟ ʙᴇ ʙᴇᴛᴛᴇʀ ɪғ ʏᴏᴜ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs ʙᴀʙʏ.", show_alert=True
             )
         except:
             return
@@ -76,7 +76,7 @@ async def admin_cbs(_, query: CallbackQuery):
     if data == "resume_cb":
         if await is_streaming(query.message.chat.id):
             return await query.answer(
-                "شنو تذكرت تستأنف البث ?", show_alert=True
+                "⎊ تم استئناف التشغيل ⚡", show_alert=True
             )
         await stream_on(query.message.chat.id)
         await pytgcalls.resume_stream(query.message.chat.id)
@@ -93,7 +93,7 @@ async def admin_cbs(_, query: CallbackQuery):
         await stream_off(query.message.chat.id)
         await pytgcalls.pause_stream(query.message.chat.id)
         await query.message.reply_text(
-            text=f"⌔︙ تم ايقاف التشغيل مؤقتاً \n \n⌔︙ بواسطة : {query.from_user.mention} ",
+            text=f"⌔︙⎊ تم ايقاف التشغيل مؤقتاً 🥺 \n \n⌔︙ بواسطة : {query.from_user.mention} ",
             reply_markup=close_key,
         )
 
@@ -104,7 +104,7 @@ async def admin_cbs(_, query: CallbackQuery):
         except:
             pass
         await query.message.reply_text(
-            text=f"⌔︙ تم ايقاف التشغيل \n \n⌔︙ بواسطة : {query.from_user.mention}",
+            text=f"⌔︙ ⎊ تم ايقاف التشغيل 🥺 \n \n⌔︙ بواسطة : {query.from_user.mention}",
             reply_markup=close_key,
         )
         await query.message.delete()
@@ -116,7 +116,7 @@ async def admin_cbs(_, query: CallbackQuery):
                 await _clear_(query.message.chat.id)
                 await pytgcalls.leave_group_call(query.message.chat.id)
                 await query.message.reply_text(
-                    text=f"⌔︙ تخطي الاغنية \n \n⌔︙ بواسطة : {query.from_user.mention} \n\n**⌔︙ لا يوجد اغنية تالية في قائمة الانتظار ** {query.message.chat.title}, **ترك دردشة الفيديو**",
+                    text=f"⌔︙ ⎊ تخطي الاغنية 🥺 \n \n⌔︙ بواسطة : {query.from_user.mention} \n\n**⌔︙ لا يوجد اغنية تالية في قائمة الانتظار ** {query.message.chat.title}, **ترك دردشة الفيديو**",
                     reply_markup=close_key,
                 )
                 return await query.message.delete()
@@ -144,12 +144,12 @@ async def admin_cbs(_, query: CallbackQuery):
 
             img = await gen_thumb(videoid, user_id)
             await query.edit_message_text(
-                text=f"⌔︙ تم تخطي التشغيل \n \n⌔︙ بواسطة : {query.from_user.mention}",
+                text=f"⌔︙ ⎊ تم تخطي التشغيل 🥺 \n \n⌔︙ بواسطة : {query.from_user.mention}",
                 reply_markup=close_key,
             )
             return await query.message.reply_photo(
                 photo=img,
-                caption=f"**⌔︙ بدء تشغيل**\n\n⌔︙ **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⌔︙ **المدة :** `{duration}` دقيقة\n⌔︙ **مطلوبة من :** {req_by}",
+                caption=f"**⌔︙ ⎊ بدء تشغيل**\n\n⌔︙ **العنوان :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n⌔︙ **المدة :** `{duration}` دقيقة\n⌔︙ **مطلوبة من :** {req_by}",
                 reply_markup=buttons,
             )
 
